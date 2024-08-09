@@ -2,9 +2,12 @@ import axios from "axios";
 import { ArticleInterface } from "../interfaces/Article";
 import { useState, useEffect } from "react";
 import ArticleItem from "./ArticleItem";
+import { useNavigate } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState<ArticleInterface[]>([]);
+  const navigate = useNavigate();
 
   const fetchArticles = async () => {
     try {
@@ -20,12 +23,19 @@ const ArticleList = () => {
     fetchArticles();
   }, []);
 
+  const cardClick = (articleId: number) => {
+    navigate(`${articleId}`);
+  };
+
   return (
-    <div>
-      {articles.map((article) => (
-        <ArticleItem key={article.id} articleDetails={article} />
-      ))}
-    </div>
+    <Container>
+      <h1>Space Portal</h1>
+      <Row className="gy-3">
+        {articles.map((article) => (
+          <ArticleItem key={article.id} articleDetails={article} onClick={() => cardClick(article.id)} />
+        ))}
+      </Row>
+    </Container>
   );
 };
 
