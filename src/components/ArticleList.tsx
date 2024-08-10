@@ -72,21 +72,21 @@ const ArticleList = () => {
   };
 
   return (
-    <Container>
+    <Container className="mt-5 pt-4">
       {/* Mostra il loader solo durante il caricamento */}
       {loading ? (
         <div className="loader"></div>
       ) : (
         <>
           {/* card */}
-          <Row className="gy-3">
+          <Row className="gy-3 mb-4">
             {articles.map((article) => (
               <ArticleItem key={article.id} articleDetails={article} onClick={() => cardClick(article.id)} />
             ))}
           </Row>
 
           {!loading && (prevUrl || nextUrl) && (
-            <Row className="mt-3">
+            <Row className="mb-3">
               <Col className="d-flex justify-content-between">
                 <Button onClick={handleResetPage} disabled={loading}>
                   Reset

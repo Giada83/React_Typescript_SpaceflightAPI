@@ -1,23 +1,17 @@
 /* style */
 body {
-  background-color: #536173;
+  background-color: #bacbd9;
 }
 
 a {
   text-decoration: none;
-  color: #024873;
 }
 
 .darkblue {
-  color: #024873;
+  color: #182026;
 }
 
 /* card */
-.card {
-  cursor: pointer;
-  border: none;
-}
-
 .card-img {
   height: 180px;
   object-fit: cover;
