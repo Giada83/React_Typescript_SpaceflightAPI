@@ -1,6 +1,7 @@
 /* style */
 body {
   background-color: #bacbd9;
+  overflow-y: scroll;
 }
 
 a {
@@ -91,4 +92,13 @@ a {
 .reset-button:active,
 .reset-button:focus {
   background-color: #536173;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-container svg {
+  margin-right: 8px;
 }

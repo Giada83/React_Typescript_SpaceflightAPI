@@ -14,16 +14,7 @@ function NavBar() {
             SpaceLens
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              <Nav.Link as={Link} to="/">
-                | Go Home
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-
-          <Navbar.Text className="me-auto fs-6 d-none d-lg-block fw-medium">
+          <Navbar.Text className="ms-auto fs-6 d-none d-lg-block fw-medium">
             <BsRocketTakeoffFill className="me-1" /> Exploring the Universe, One Article at a Time
           </Navbar.Text>
         </Container>
