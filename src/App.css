@@ -1,4 +1,40 @@
+/* style */
+body {
+  background-color: #1d2f40;
+}
+
+a {
+  text-decoration: none;
+  color: #024873;
+}
+
+.darkblue {
+  color: #024873;
+}
+
+/* card */
+.card {
+  cursor: pointer;
+  border: none;
+}
+
 .card-img {
-  height: 200px; /* Imposta un'altezza fissa */
-  object-fit: cover; /* Assicura che l'immagine si adatti all'area senza deformarsi */
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-footer {
+  font-size: 0.8rem;
+  color: gray;
+  letter-spacing: 0.1rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

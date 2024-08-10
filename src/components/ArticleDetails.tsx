@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleInterface } from "../interfaces/Article";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 
 const ArticleDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [article, setArticle] = useState<ArticleInterface | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const fetchArticleDetails = async () => {
     try {
@@ -14,6 +16,8 @@ const ArticleDetails = () => {
       console.log("DATI", response.data);
     } catch (error) {
       console.log("ERROR", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -21,8 +25,16 @@ const ArticleDetails = () => {
     fetchArticleDetails();
   }, [id]);
 
+  if (loading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
+
   if (!article) {
-    return <div>No details avaliable</div>;
+    return <div>Article not found</div>;
   }
 
   return (

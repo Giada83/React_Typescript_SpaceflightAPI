@@ -29,7 +29,6 @@ const ArticleList = () => {
 
   return (
     <Container>
-      <h1>Space Portal</h1>
       <Row className="gy-3">
         {articles.map((article) => (
           <ArticleItem key={article.id} articleDetails={article} onClick={() => cardClick(article.id)} />
