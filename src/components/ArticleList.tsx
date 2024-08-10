@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // gestisce la navigazione all'interno dell'app.
 import { Container, Row, Button, Col } from "react-bootstrap";
+import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ArticleInterface } from "../interfaces/Article"; //interfaccia
 import ArticleItem from "./ArticleItem"; // componente usato per mostrare ogni articolo.
 
@@ -86,17 +88,21 @@ const ArticleList = () => {
           </Row>
 
           {!loading && (prevUrl || nextUrl) && (
-            <Row className="mb-3">
-              <Col className="d-flex justify-content-between">
-                <Button onClick={handleResetPage} disabled={loading}>
-                  Reset
+            <Row className="mb-3 d-flex justify-content-between">
+              <Col xs={6}>
+                <Button onClick={handleResetPage} disabled={loading} className="reset-button">
+                  First Page
                 </Button>
-                <Button onClick={handlePrevPage} disabled={!prevUrl || loading}>
-                  Previous
-                </Button>
-                <Button onClick={handleNextPage} disabled={!nextUrl || loading}>
-                  Next
-                </Button>
+              </Col>
+              <Col xs={6} className="d-flex">
+                <div className="ms-auto">
+                  <Button onClick={handlePrevPage} disabled={!prevUrl || loading} className="me-2 icon-button darkblue">
+                    <FaRegArrowAltCircleLeft className="icon-size" />
+                  </Button>
+                  <Button onClick={handleNextPage} disabled={!nextUrl || loading} className="icon-button darkblue">
+                    <FaRegArrowAltCircleRight className="icon-size" />
+                  </Button>
+                </div>
               </Col>
             </Row>
           )}

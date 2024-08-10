@@ -56,3 +56,39 @@ a {
     transform: rotate(360deg);
   }
 }
+
+/* page */
+.icon-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  align-items: center;
+}
+
+.icon-button:disabled {
+  background-color: transparent;
+}
+
+.icon-button:hover,
+.icon-button:active,
+.icon-button:focus {
+  color: #536173;
+  background-color: transparent;
+}
+
+.icon-size {
+  height: 35px;
+  width: 35px;
+}
+
+.reset-button {
+  background-color: #182026;
+  border: none;
+  border-radius: 0;
+}
+
+.reset-button:hover,
+.reset-button:active,
+.reset-button:focus {
+  background-color: #536173;
+}
