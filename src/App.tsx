@@ -10,7 +10,6 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
-
         <Routes>
           <Route path="/" element={<ArticleList />} />
           <Route path=":id" element={<ArticleDetails />} />

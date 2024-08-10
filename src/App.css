@@ -1,6 +1,6 @@
 /* style */
 body {
-  background-color: #1d2f40;
+  background-color: #536173;
 }
 
 a {
@@ -39,6 +39,7 @@ a {
   text-overflow: ellipsis;
 }
 
+/* loader */
 .loader {
   position: fixed;
   top: 50%;
