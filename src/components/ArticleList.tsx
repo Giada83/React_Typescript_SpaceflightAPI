@@ -23,9 +23,6 @@ const ArticleList = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
-  //Stato per controllare se ci sono articoli da mostrare
-  const [hasArticles, setHasArticles] = useState<boolean>(false);
-
   const navigate = useNavigate();
 
   const fetchArticles = async (url: string) => {
@@ -35,7 +32,6 @@ const ArticleList = () => {
       setArticles(response.data.results); // Aggiorna lo stato `articles` con i risultati ottenuti.
       setNextUrl(response.data.next); // Aggiorna lo stato `nextUrl` con l'URL della prossima pagina.
       setPrevUrl(response.data.previous); // Aggiorna lo stato `prevUrl` con l'URL della pagina precedente.
-      setHasArticles(response.data.results.length > 0);
     } catch (e) {
       console.log("ERROR", e);
     } finally {
@@ -89,14 +85,13 @@ const ArticleList = () => {
             ))}
           </Row>
 
-          {/* Mostra i pulsanti solo se ci sono articoli e non siamo in caricamento */}
-          {hasArticles && (
+          {!loading && (prevUrl || nextUrl) && (
             <Row className="mt-3">
               <Col className="d-flex justify-content-between">
-                <Button onClick={handleResetPage} disabled={loading} style={{ marginRight: "5px" }}>
+                <Button onClick={handleResetPage} disabled={loading}>
                   Reset
                 </Button>
-                <Button onClick={handlePrevPage} disabled={!prevUrl || loading} style={{ marginRight: "5px" }}>
+                <Button onClick={handlePrevPage} disabled={!prevUrl || loading}>
                   Previous
                 </Button>
                 <Button onClick={handleNextPage} disabled={!nextUrl || loading}>
