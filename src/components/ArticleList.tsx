@@ -87,6 +87,7 @@ const ArticleList = () => {
             ))}
           </Row>
 
+          {/* pagination */}
           {!loading && (prevUrl || nextUrl) && (
             <Row className="mb-3 d-flex justify-content-between">
               <Col xs={6}>

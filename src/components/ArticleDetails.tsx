@@ -5,6 +5,7 @@ import axios from "axios";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { GoRocket } from "react-icons/go";
 import { RxRocket } from "react-icons/rx";
+import NotFound from "./NotFound";
 
 const ArticleDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -40,19 +41,7 @@ const ArticleDetails = () => {
   }
 
   if (!article) {
-    return (
-      <Container className="mt-5 pt-4">
-        <Row className="d-flex justify-content-center">
-          <Col className="text-center d-flex flex-column align-items-center" sm={12} md={6} lg={5}>
-            <img src="/images/error404.png" alt="lost in space" className="img-fluid" />
-            <Link to="/" className="link-container darkblue d-flex align-items-center fs-4">
-              <GoRocket className="me-2" />
-              Go home, astronaut
-            </Link>
-          </Col>
-        </Row>
-      </Container>
-    );
+    return <NotFound />;
   }
 
   return (
